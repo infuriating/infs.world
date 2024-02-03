@@ -6,7 +6,7 @@ export default defineSchema({
     slug: v.string(),
     title: v.string(),
     description: v.string(),
-    image: v.string(),
+    images: v.array(v.string()),
     technologies: v.array(v.string()),
     tags: v.optional(v.array(v.string())),
     github: v.optional(v.string()),
