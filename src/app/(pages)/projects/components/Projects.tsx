@@ -17,7 +17,7 @@ export default function Projects(params: {
         {projects.map((project) => (
           <ProjectItem
             key={project._id}
-            image={project.image}
+            image={project.images[0]}
             slug={`/projects/${project.slug}`}
             title={project.title}
             description={project.description}
