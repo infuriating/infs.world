@@ -17,11 +17,12 @@ export default function ProjectItem({
   return (
     <div className="group w-max rounded-lg border p-4">
       <ProjectImage image={image} title={title} />
-      <Link className="absolute inset-0 z-10" href={slug}>
-        <span className="sr-only">View Project</span>
+      <p className="mt-2 max-w-[384px] text-sm text-muted-foreground">
+        {description}
+      </p>
+      <Link href={slug}>
+        <Button className="mt-2">View Project</Button>
       </Link>
-      <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-      <Button className="mt-2">View Project</Button>
     </div>
   );
 }
