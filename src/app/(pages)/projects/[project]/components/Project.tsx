@@ -23,15 +23,14 @@ export default function Project(params: {
     <section className="w-full">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-          <Carousel className="ml-4 hidden w-max lg:block">
-            <CarouselPrevious />
+          <Carousel className="ml-8 flex w-[300px] items-center lg:ml-4 lg:w-[500px] xl:w-[600px]">
             <CarouselContent>
               {project.images.map((image) => (
                 <CarouselItem key={image}>
                   <Image
                     src={image}
                     alt={project.title}
-                    className="rounded-xl border"
+                    className="w-[300px] rounded-xl border object-cover object-center lg:w-[500px] xl:w-[600px]"
                     height="550"
                     width="550"
                   />
@@ -39,14 +38,8 @@ export default function Project(params: {
               ))}
             </CarouselContent>
             <CarouselNext />
+            <CarouselPrevious />
           </Carousel>
-          <Image
-            src={project.images[0]}
-            alt={project.title}
-            height="550"
-            width="550"
-            className="rounded-xl border lg:hidden"
-          />
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
