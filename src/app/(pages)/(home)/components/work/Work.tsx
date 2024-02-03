@@ -2,13 +2,19 @@
 
 import React from "react";
 import { motion, cubicBezier } from "framer-motion";
-import Tag from "./ui/tag";
+import Tag from "../ui/tag";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
-import SectionTitle from "./ui/section-title";
-import ProjectWork from "./ui/project-work";
+import SectionTitle from "../ui/section-title";
+import ProjectWork from "../ui/project-work";
+import { Preloaded, usePreloadedQuery } from "convex/react";
+import { api } from "../../../../../../convex/_generated/api";
 
-export default function Work() {
+export default function Work(params: {
+  preloadedProjects: Preloaded<typeof api.project.getLatestTwo>;
+}) {
+  const projects = usePreloadedQuery(params.preloadedProjects);
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -50 }}
@@ -24,16 +30,14 @@ export default function Work() {
         <Tag number={3} />
         <SectionTitle title="My work" />
         <div className="grid gap-x-6 gap-y-4 md:grid-cols-2">
-          <ProjectWork
-            slug="pvlse-records"
-            title="PVLSE Records"
-            description="A record label."
-          />
-          <ProjectWork
-            slug="roundtrips"
-            title="ROUNDTRIPS"
-            description="A multimedia collective."
-          />
+          {projects.map((project) => (
+            <ProjectWork
+              key={project._id}
+              slug={project.slug}
+              title={project.title}
+              description={project.description}
+            />
+          ))}
         </div>
         <Link
           href={"/projects"}
