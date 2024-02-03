@@ -6,6 +6,13 @@ import { api } from "../../../../../../convex/_generated/api";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Project(params: {
   preloadedProject: Preloaded<typeof api.project.getProject>;
@@ -16,12 +23,29 @@ export default function Project(params: {
     <section className="w-full">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+          <Carousel className="ml-4 hidden w-max lg:block">
+            <CarouselPrevious />
+            <CarouselContent>
+              {project.images.map((image) => (
+                <CarouselItem key={image}>
+                  <Image
+                    src={image}
+                    alt={project.title}
+                    className="rounded-xl border"
+                    height="550"
+                    width="550"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselNext />
+          </Carousel>
           <Image
-            src={project.image}
+            src={project.images[0]}
             alt={project.title}
-            className="mx-auto aspect-video overflow-hidden rounded-xl border object-cover object-bottom sm:w-full lg:order-last lg:aspect-square"
             height="550"
             width="550"
+            className="rounded-xl border lg:hidden"
           />
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
