@@ -1,8 +1,8 @@
 import React from "react";
 import Introduction from "./components/Introduction";
 import About from "./components/About";
-import Work from "./components/Work";
 import Skills from "./components/Skills";
+import WorkWrapper from "./components/work/WorkWrapper";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
           <Introduction />
           <About />
           <Skills />
-          <Work />
+          <WorkWrapper />
         </div>
       </main>
     </div>
