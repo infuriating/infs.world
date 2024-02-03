@@ -30,7 +30,7 @@ export default function Project(params: {
                   <Image
                     src={image}
                     alt={project.title}
-                    className="w-[300px] rounded-xl border object-cover object-center lg:w-[500px] xl:w-[600px]"
+                    className="h-[169px] w-[300px] rounded-xl border object-cover object-center lg:h-[281px] lg:w-[500px] xl:h-[337px] xl:w-[600px]"
                     height="300"
                     width="550"
                   />
