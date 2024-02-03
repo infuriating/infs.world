@@ -5,7 +5,7 @@ import { Preloaded, usePreloadedQuery } from "convex/react";
 import { api } from "../../../../../../convex/_generated/api";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Github } from "lucide-react";
+import { Github, X } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -76,10 +76,14 @@ export default function Project(params: {
                   </Button>
                 </Link>
               )}
-              {project.website && (
+              {project.website ? (
                 <Link href={project.website}>
                   <Button>Visit Live Website</Button>
                 </Link>
+              ) : (
+                <Button className="flex gap-x-2" disabled>
+                  <X /> Live Website is not available
+                </Button>
               )}
             </div>
             <div className="mt-4 flex flex-wrap gap-1">
