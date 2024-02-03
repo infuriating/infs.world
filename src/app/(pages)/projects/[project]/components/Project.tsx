@@ -70,14 +70,14 @@ export default function Project(params: {
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               {project.github && (
-                <Link href={project.github}>
+                <Link href={project.github} target="_blank">
                   <Button className="flex gap-x-2" variant={"outline"}>
                     <Github /> View on Github
                   </Button>
                 </Link>
               )}
               {project.website ? (
-                <Link href={project.website}>
+                <Link href={project.website} target="_blank">
                   <Button>Visit Live Website</Button>
                 </Link>
               ) : (
