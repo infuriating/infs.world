@@ -62,15 +62,6 @@ export default function Project(params: {
               )}
             </div>
             <div className="mt-4 flex flex-wrap gap-1">
-              <span className="inline-flex items-center rounded-full bg-gray-100 px-3 py-0.5 text-sm font-medium text-gray-800 dark:bg-gray-800 dark:text-gray-100">
-                Tag 1
-              </span>
-              <span className="inline-flex items-center rounded-full bg-gray-100 px-3 py-0.5 text-sm font-medium text-gray-800 dark:bg-gray-800 dark:text-gray-100">
-                Tag 2
-              </span>
-              <span className="inline-flex items-center rounded-full bg-gray-100 px-3 py-0.5 text-sm font-medium text-gray-800 dark:bg-gray-800 dark:text-gray-100">
-                Tag 3
-              </span>
               {project.tags &&
                 project.tags.map((tag) => (
                   <span
