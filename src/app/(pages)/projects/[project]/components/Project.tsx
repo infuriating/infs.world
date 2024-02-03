@@ -31,14 +31,18 @@ export default function Project(params: {
                     src={image}
                     alt={project.title}
                     className="w-[300px] rounded-xl border object-cover object-center lg:w-[500px] xl:w-[600px]"
-                    height="550"
+                    height="300"
                     width="550"
                   />
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselNext />
-            <CarouselPrevious />
+            {project.images.length > 1 && (
+              <>
+                <CarouselNext />
+                <CarouselPrevious />
+              </>
+            )}
           </Carousel>
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
