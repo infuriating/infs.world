@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Toaster } from "@/components/ui/sonner";
+import Page from "@/components/Page";
+import ConvexClientProvider from "@/components/ConvexClientProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <ConvexClientProvider>
+        <body className={GeistSans.className}>
+          <Toaster />
+          <Page>{children}</Page>
+        </body>
+      </ConvexClientProvider>
     </html>
   );
 }
