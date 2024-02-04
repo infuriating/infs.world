@@ -21,7 +21,10 @@ export default function SocialIcon({
     <HoverCard>
       <HoverCardTrigger>
         <Link href={url} target="_blank">
-          <FontAwesomeIcon className="h-10 w-10" icon={icon} />
+          <FontAwesomeIcon
+            className="h-6 w-6 transform transition-all duration-200 hover:scale-110"
+            icon={icon}
+          />
         </Link>
       </HoverCardTrigger>
       <HoverCardContent>
