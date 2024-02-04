@@ -2,8 +2,11 @@
 
 import { cubicBezier, motion } from "framer-motion";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import Link from "next/link";
 import React from "react";
+import SocialIcon from "./ui/social-icon";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import GradientText from "@/components/ui/gradient-text";
 
 export default function Introduction() {
   return (
@@ -18,7 +21,7 @@ export default function Introduction() {
           className="text-2xl"
           words="Bringing web experiences out of this universe. Exploring design, UX and back-end."
         />
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
@@ -27,27 +30,27 @@ export default function Introduction() {
             ease: cubicBezier(0.22, 0.61, 0.36, 1),
           }}
         >
-          Get in touch via{" "}
-          <Link
-            className="text-purple-400 underline transition-all hover:text-purple-500"
-            href="https://github.com/infuriating"
-          >
-            GitHub
-          </Link>
-          ,{" "}
-          <Link
-            className="text-purple-400 underline transition-all hover:text-purple-500"
-            href="https://linkedin.com/in/lucakuiper>"
-          >
-            LinkedIn
-          </Link>{" "}
-          or{" "}
-          <Link href="mailto:luca@infs.world">
-            <span className="text-purple-400 underline transition-all hover:text-purple-500">
-              email
-            </span>
-          </Link>
-        </motion.p>
+          <p>
+            Get in touch via the <GradientText text="following mediums" />
+          </p>
+          <div className="mt-2 flex justify-center gap-x-6">
+            <SocialIcon
+              url="https://linkedin.com/in/lucakuiper"
+              medium="LinkedIn"
+              icon={faLinkedin}
+            />
+            <SocialIcon
+              url="https://github.com/infuriating"
+              medium="GitHub"
+              icon={faGithub}
+            />
+            <SocialIcon
+              url="mailto:luca@infs.world"
+              medium="Email"
+              icon={faEnvelope}
+            />
+          </div>
+        </motion.div>
       </div>
     </div>
   );
