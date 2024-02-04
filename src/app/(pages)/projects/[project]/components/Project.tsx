@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Preloaded, usePreloadedQuery } from "convex/react";
 import { api } from "../../../../../../convex/_generated/api";
 import Link from "next/link";
+import { LinkIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Github, X } from "lucide-react";
 import {
@@ -78,7 +79,9 @@ export default function Project(params: {
               )}
               {project.website ? (
                 <Link href={project.website} target="_blank">
-                  <Button>Visit Live Website</Button>
+                  <Button className="flex gap-x-2">
+                    <LinkIcon /> Visit Live Website
+                  </Button>
                 </Link>
               ) : (
                 <Button className="flex gap-x-2" disabled>
