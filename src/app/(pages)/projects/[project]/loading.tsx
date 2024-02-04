@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Github, LinkIcon } from "lucide-react";
 import React from "react";
@@ -33,8 +34,12 @@ export default function loading() {
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Github /> View on GitHub
-              <LinkIcon /> Visit Live Website
+              <Button className="flex gap-x-2" variant="outline">
+                <Github /> View on GitHub
+              </Button>
+              <Button className="flex gap-x-2">
+                <LinkIcon /> Visit Live Website
+              </Button>
             </div>
             <div className="mt-4 flex flex-wrap gap-1">
               {Array.from({ length: 6 }, (_, i) => (
