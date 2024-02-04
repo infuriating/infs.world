@@ -13,7 +13,7 @@ export default function Projects(params: {
 
   return (
     <div className="flex justify-center">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
           <ProjectItem
             key={project._id}
