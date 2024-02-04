@@ -21,13 +21,15 @@ export default function SocialIcon({
     <HoverCard>
       <HoverCardTrigger>
         <Link href={url} target="_blank">
-          <FontAwesomeIcon className="h-6 w-6" icon={icon} />
+          <FontAwesomeIcon className="h-10 w-10" icon={icon} />
         </Link>
       </HoverCardTrigger>
       <HoverCardContent>
         <p>{medium}</p>
         <p className="text-muted-foreground">
-          {url.slice(url.indexOf("/") + 2)}
+          {url.includes("https://")
+            ? url.slice(url.indexOf("/") + 2)
+            : url.replace("mailto:", "")}
         </p>
       </HoverCardContent>
     </HoverCard>
