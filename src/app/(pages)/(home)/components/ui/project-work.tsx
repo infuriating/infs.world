@@ -17,7 +17,7 @@ export default function ProjectWork({
         className="mb-1 text-xl font-bold brightness-200 saturate-0 transition-all group-hover:brightness-100 group-hover:saturate-100 lg:mb-2"
         text={title}
       />
-      <p className="mb-2 w-full truncate text-base transition-all group-hover:text-white lg:mb-0">
+      <p className="mb-2 max-w-80 truncate text-base transition-all group-hover:text-white sm:max-w-md lg:mb-0">
         {description}
       </p>
     </Link>
