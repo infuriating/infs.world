@@ -33,9 +33,9 @@ export default function About() {
             within my heart I also carry a love for back-end.
           </p>
           <p>
-            Other than that, I always try to improve myself skill-wise and also
-            physically by working out. From time to time I also like to play
-            some games and spend time with my girlfriend.
+            Other than that, I always try to expand my knowledge and improve
+            myself physically by working out. I also love to play video games
+            and spend time with my girlfriend.
           </p>
         </div>
       </div>
