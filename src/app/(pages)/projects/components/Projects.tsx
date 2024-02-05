@@ -11,6 +11,12 @@ export default function Projects(params: {
   const projects = usePreloadedQuery(params.preloadedProjects);
   if (!projects || projects.length === 0) return <>No projects found!</>;
 
+  projects.sort((a, b) => {
+    return (
+      new Date(b._creationTime).getTime() - new Date(a._creationTime).getTime()
+    );
+  });
+
   return (
     <div className="flex justify-center">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
