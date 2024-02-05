@@ -4,7 +4,6 @@ import React from "react";
 import { motion, cubicBezier } from "framer-motion";
 import Tag from "./ui/tag";
 import GradientText from "@/components/ui/gradient-text";
-import { Separator } from "@/components/ui/separator";
 import SectionTitle from "./ui/section-title";
 
 export default function About() {
@@ -32,6 +31,11 @@ export default function About() {
           <p>
             With a passion for design and doing the work on the front-end,
             within my heart I also carry a love for back-end.
+          </p>
+          <p>
+            Other than that, I always try to improve myself skill-wise and also
+            physically by working out. From time to time I also like to play
+            some games and spend time with my girlfriend.
           </p>
         </div>
       </div>
