@@ -21,14 +21,14 @@ export default function Header() {
   const pathname = usePathname();
 
   const MobileHeader = () => (
-    <div className="fixed z-50 flex h-16 w-full items-center justify-between bg-black/50 px-4 backdrop-blur-lg md:hidden">
+    <div className="fixed z-50 flex h-16 w-screen items-center justify-between bg-black/50 px-4 backdrop-blur-lg md:hidden">
       <div />
       <MobileDrawer routes={routes} pathname={pathname} />
     </div>
   );
 
   const DesktopHeader = () => (
-    <div className="fixed z-50 hidden h-16 w-full items-center justify-between bg-black/50 px-4 backdrop-blur-lg md:flex">
+    <div className="fixed z-50 hidden h-16 w-screen items-center justify-between bg-black/50 px-4 backdrop-blur-lg md:flex">
       <div />
       <div className="flex items-center gap-x-6">
         {routes.map((route) => (
