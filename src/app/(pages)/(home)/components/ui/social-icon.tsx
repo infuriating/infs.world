@@ -1,8 +1,9 @@
 import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -18,23 +19,25 @@ export default function SocialIcon({
   medium: string;
 }) {
   return (
-    <HoverCard>
-      <HoverCardTrigger>
-        <Link href={url} target="_blank">
-          <FontAwesomeIcon
-            className="h-6 w-6 transform transition-all duration-200 hover:scale-110"
-            icon={icon}
-          />
-        </Link>
-      </HoverCardTrigger>
-      <HoverCardContent>
-        <p>{medium}</p>
-        <p className="text-muted-foreground">
-          {url.includes("https://")
-            ? url.slice(url.indexOf("/") + 2)
-            : url.replace("mailto:", "")}
-        </p>
-      </HoverCardContent>
-    </HoverCard>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger>
+          <Link href={url} target="_blank">
+            <FontAwesomeIcon
+              className="h-6 w-6 transform transition-all duration-200 hover:scale-110"
+              icon={icon}
+            />
+          </Link>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{medium}</p>
+          <p className="text-muted-foreground">
+            {url.includes("https://")
+              ? url.slice(url.indexOf("/") + 2)
+              : url.replace("mailto:", "")}
+          </p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 }
