@@ -1,19 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { Preloaded, usePreloadedQuery } from "convex/react";
 import { api } from "../../../../../../convex/_generated/api";
 import Link from "next/link";
 import { LinkIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Github, X } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import ProjectCarousel from "./ProjectCarousel";
 
 export default function Project(params: {
   preloadedProject: Preloaded<typeof api.project.getProject>;
@@ -24,27 +17,7 @@ export default function Project(params: {
     <section className="w-full">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-          <Carousel className="ml-8 flex w-[300px] items-center lg:ml-4 lg:w-[500px] xl:w-[600px]">
-            <CarouselContent>
-              {project.images.map((image) => (
-                <CarouselItem key={image}>
-                  <Image
-                    src={image}
-                    alt={project.title}
-                    className="h-[169px] w-[300px] rounded-xl border object-cover object-center lg:h-[281px] lg:w-[500px] xl:h-[337px] xl:w-[600px]"
-                    height="300"
-                    width="550"
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            {project.images.length > 1 && (
-              <>
-                <CarouselNext />
-                <CarouselPrevious />
-              </>
-            )}
-          </Carousel>
+          <ProjectCarousel project={project} />
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
