@@ -20,7 +20,7 @@ export default function ProjectCarousel({
     title: string;
   };
 }) {
-  const [selectedImage, setSelectedImage] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(-1);
 
   const fullscreenImage = (idx: number) => setSelectedImage(idx);
 
