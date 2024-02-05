@@ -25,12 +25,12 @@ export default function MobileDrawer({
 }) {
   return (
     <Drawer>
+      <DrawerTrigger>
+        <Button className="px-2 py-2 text-2xl" variant={"outline"}>
+          <FontAwesomeIcon icon={faBars} />
+        </Button>
+      </DrawerTrigger>
       <DrawerPortal>
-        <DrawerTrigger>
-          <Button size={"icon"} className="text-2xl" variant={"outline"}>
-            <FontAwesomeIcon icon={faBars} />
-          </Button>
-        </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>Navigation</DrawerTitle>
