@@ -19,8 +19,8 @@ export default function SocialIcon({
   medium: string;
 }) {
   return (
-    <TooltipProvider delayDuration={150}>
-      <Tooltip>
+    <TooltipProvider>
+      <Tooltip delayDuration={200}>
         <TooltipTrigger>
           <Link href={url} target="_blank">
             <FontAwesomeIcon
