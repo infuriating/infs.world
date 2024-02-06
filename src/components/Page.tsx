@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./header/Header";
 import Grain from "./Grain";
+import ReturnButton from "./ReturnButton";
 
 export default function Page({
   children,
@@ -17,7 +18,10 @@ export default function Page({
       <Header />
       <Grain />
 
-      <div className="flex justify-center px-4 pt-20 lg:pt-28">{children}</div>
+      <div className="flex flex-col justify-center px-4 pt-20 lg:pt-28">
+        <ReturnButton />
+        {children}
+      </div>
     </>
   );
 }
