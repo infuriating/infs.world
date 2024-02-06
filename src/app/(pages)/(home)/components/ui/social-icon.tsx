@@ -19,7 +19,7 @@ export default function SocialIcon({
   medium: string;
 }) {
   return (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={150}>
       <Tooltip>
         <TooltipTrigger>
           <Link href={url} target="_blank">
