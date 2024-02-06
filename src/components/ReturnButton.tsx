@@ -11,7 +11,7 @@ export default function ReturnButton() {
 
   return (
     <div className="w-screen pb-4 lg:px-8">
-      <Link href={"/"} className="group flex items-center gap-x-2">
+      <Link href={"/"} className="group flex w-max items-center gap-x-2">
         <ArrowLeftSquare className="h-8 w-8 opacity-50 transition-all group-hover:scale-110 group-hover:opacity-75" />
         <p>
           <span className="opacity-75 transition-all group-hover:opacity-75 md:opacity-0">
