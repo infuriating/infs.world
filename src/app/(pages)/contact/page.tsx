@@ -24,7 +24,7 @@ export default function page() {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const recipientEmail = await resend.emails.send({
       from: `Luca Kuiper <${process.env.RESEND_MAIL_FROM}>`,
-      to: [email],
+      to: ["luca@infs.world"],
       subject: `infs.world || ${name} left you a message!`,
       react: RecipientEmail({
         name: name,
@@ -35,7 +35,7 @@ export default function page() {
     const senderEmail = await resend.emails.send({
       from: `Luca Kuiper <${process.env.RESEND_MAIL_FROM}>`,
       subject: "infs.world || Thanks for reaching out!",
-      to: ["luca@infs.world"],
+      to: [email],
       react: SenderEmail({
         name: name,
         contents: message,
