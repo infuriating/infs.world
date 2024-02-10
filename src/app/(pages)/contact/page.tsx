@@ -28,6 +28,7 @@ export default function page() {
       subject: `infs.world || ${name} left you a message!`,
       react: RecipientEmail({
         name: name,
+        email: email,
         contents: message,
       }),
     });

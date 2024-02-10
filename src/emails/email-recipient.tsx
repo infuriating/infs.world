@@ -14,15 +14,23 @@ import * as React from "react";
 
 type RecipientEmailProps = {
   name: string;
+  email: string;
   contents: string;
 };
 
-export const RecipientEmail = ({ name, contents }: RecipientEmailProps) => (
+export const RecipientEmail = ({
+  name,
+  email,
+  contents,
+}: RecipientEmailProps) => (
   <Html>
     <Head />
     <Tailwind>
       <Body style={main}>
         <Container className="25px 48px m-0 mx-auto px-6 py-10">
+          <Text className="text-xs text-neutral-500">
+            Return mail to: {email}
+          </Text>
           <Heading className="mt-12 text-3xl font-bold">
             🪄 {name} left you a message!
           </Heading>
