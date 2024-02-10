@@ -5,6 +5,7 @@ import ResumeButton from "../ResumeButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileDrawer from "./MobileDrawer";
+import Image from "next/image";
 
 const routes = [
   {
@@ -26,14 +27,30 @@ export default function Header() {
 
   const MobileHeader = () => (
     <div className="fixed z-50 flex h-16 w-screen items-center justify-between bg-black/50 px-4 backdrop-blur-lg md:hidden">
-      <div />
+      <Link target="_blank" href={"https://github.com/infuriating/infs.world"}>
+        <Image
+          src={"/logo.png"}
+          className="h-12 w-full"
+          alt="infs.world logo"
+          width={150}
+          height={56}
+        />
+      </Link>
       <MobileDrawer routes={routes} pathname={pathname} />
     </div>
   );
 
   const DesktopHeader = () => (
     <div className="fixed z-50 hidden h-16 w-screen items-center justify-between bg-black/50 px-4 backdrop-blur-lg md:flex">
-      <div />
+      <Link target="_blank" href={"https://github.com/infuriating/infs.world"}>
+        <Image
+          src={"/logo.png"}
+          className="h-12 w-full"
+          alt="infs.world logo"
+          width={150}
+          height={56}
+        />
+      </Link>
       <div className="flex items-center gap-x-6">
         {routes.map((route) => (
           <Link key={route.href} href={route.href}>
