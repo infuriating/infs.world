@@ -15,7 +15,7 @@ export default function Tags({
   const tagDivRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="flex w-full flex-col overflow-x-auto px-8">
+    <div className="hidden w-full flex-col overflow-x-auto px-8 md:flex">
       <h1 className="pb-2 text-xl font-medium">Filter by tags</h1>
       {selectedTags.length > 0 && (
         <Button

@@ -9,7 +9,7 @@ const widths = ["w-4", "w-6", "w-8", "w-10", "w-12"];
 export default function loading() {
   return (
     <div className="flex flex-col justify-center gap-y-6">
-      <div className="flex w-full flex-col overflow-x-auto px-8">
+      <div className="hidden w-full flex-col overflow-x-auto px-8 md:flex">
         <h1 className="pb-2 text-xl font-medium">Filter by tags</h1>
         <div className="flex gap-2 overflow-x-auto">
           {tags.map((tag) => (
