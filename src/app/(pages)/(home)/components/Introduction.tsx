@@ -7,6 +7,8 @@ import SocialIcon from "./ui/social-icon";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import GradientText from "@/components/ui/gradient-text";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Introduction() {
   return (
@@ -31,9 +33,9 @@ export default function Introduction() {
           }}
         >
           <p>
-            Get in touch via the <GradientText text="following mediums" />
+            Get in touch via the <GradientText text="links below" />
           </p>
-          <div className="mt-2 flex justify-center gap-x-6">
+          <div className="mt-2 flex justify-center gap-x-4">
             <SocialIcon
               url="https://linkedin.com/in/lucakuiper"
               medium="LinkedIn"
@@ -49,6 +51,16 @@ export default function Introduction() {
               medium="Email"
               icon={faEnvelope}
             />
+            <Link
+              className={buttonVariants({
+                variant: "default",
+                size: "sm",
+                className: "h-0 py-3",
+              })}
+              href="/contact"
+            >
+              Contact form
+            </Link>
           </div>
         </motion.div>
       </div>
