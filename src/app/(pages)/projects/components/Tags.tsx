@@ -13,6 +13,7 @@ export default function Tags({
   setSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
 }) {
   const tagDivRef = useRef<HTMLDivElement>(null);
+  tags.sort((a, b) => a.localeCompare(b));
 
   return (
     <div className="hidden w-full flex-col overflow-x-auto px-8 md:flex">
