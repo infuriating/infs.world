@@ -10,7 +10,7 @@ import {
 import { Resend } from "resend";
 import RecipientEmail from "@/emails/email-recipient";
 import SenderEmail from "@/emails/email-sender";
-import { toast } from "sonner";
+import { redirect } from "next/navigation";
 
 type emailData = {
   name: string;
@@ -21,19 +21,6 @@ type emailData = {
 export default function page() {
   async function send({ name, email, message }: emailData) {
     "use server";
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email))
-      return toast.error("Please enter a valid email!");
-
-    if (name.length < 3) return toast.error("Please enter a valid name!");
-    if (email.length < 3) return toast.error("Please enter a valid email!");
-    if (message.length < 3) return toast.error("Please enter a valid message!");
-
-    if (name.length > 50) return toast.error("Name is too long!");
-    if (email.length > 40) return toast.error("Email is too long!");
-    if (message.length > 400)
-      return toast.error("Message is too long! Please shorten it!");
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const recipientEmail = await resend.emails.send({
@@ -57,12 +44,10 @@ export default function page() {
       }),
     });
 
-    toast.success(
-      `Hi ${name}! Your message has been sent! You'll receive a confirmation email shortly.`,
-    );
-
     console.log(recipientEmail);
     console.log(senderEmail);
+
+    redirect("/");
   }
 
   return (
