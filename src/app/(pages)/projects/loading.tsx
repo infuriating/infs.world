@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const projects = Array.from({ length: 3 }, (_, i) => i);
 const tags = Array.from({ length: 24 }, (_, i) => i);
-const widths = ["w-4", "w-6", "w-8", "w-10", "w-12"];
+const widths = ["w-12", "w-14", "w-16", "w-20", "w-24"];
 
 export default function loading() {
   return (
@@ -15,7 +15,7 @@ export default function loading() {
           {tags.map((tag) => (
             <Skeleton
               key={tag}
-              className={`h-6 ${
+              className={`w- h-6 ${
                 widths[Math.floor(Math.random() * widths.length)]
               }  rounded-full`}
             />
