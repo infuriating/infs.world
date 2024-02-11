@@ -30,9 +30,7 @@ export default function Projects(params: {
   });
 
   const filteredProjects = projects.filter((project) => {
-    if (selectedTags.length === 0) return true;
-    if (!project.tags) return;
-    return project.tags.some((tag) => selectedTags.includes(tag));
+    return selectedTags.every((tag) => project.tags?.includes(tag));
   });
 
   return (
