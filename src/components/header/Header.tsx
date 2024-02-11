@@ -30,9 +30,9 @@ export default function Header() {
       <Link target="_blank" href={"https://github.com/infuriating/infs.world"}>
         <Image
           src={"/logo.png"}
-          className="h-12 w-full"
+          className="h-14 object-contain"
           alt="infs.world logo"
-          width={150}
+          width={100}
           height={56}
         />
       </Link>
@@ -45,9 +45,9 @@ export default function Header() {
       <Link target="_blank" href={"https://github.com/infuriating/infs.world"}>
         <Image
           src={"/logo.png"}
-          className="h-12 w-full"
+          className="h-14 object-contain"
           alt="infs.world logo"
-          width={150}
+          width={100}
           height={56}
         />
       </Link>
