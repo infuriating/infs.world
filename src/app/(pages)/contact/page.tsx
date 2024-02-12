@@ -23,9 +23,11 @@ export default function page() {
     "use server";
 
     const resend = new Resend(process.env.RESEND_API_KEY);
+
     const recipientEmail = await resend.emails.send({
       from: `Luca Kuiper <${process.env.RESEND_MAIL_FROM}>`,
       to: ["luca@infs.world"],
+      reply_to: [email],
       subject: `infs.world || ${name} left you a message!`,
       react: RecipientEmail({
         name: name,
