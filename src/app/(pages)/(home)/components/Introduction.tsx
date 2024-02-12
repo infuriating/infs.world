@@ -54,8 +54,7 @@ export default function Introduction() {
             <Link
               className={buttonVariants({
                 variant: "default",
-                size: "sm",
-                className: "h-0 py-3",
+                className: "h-6",
               })}
               href="/contact"
             >
