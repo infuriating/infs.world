@@ -36,6 +36,12 @@ export default function ContactForm({
 
     send(data);
 
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+
     toast.success(
       `Hi ${data.name}! Your message has been sent! You'll receive a confirmation email shortly.`,
     );
