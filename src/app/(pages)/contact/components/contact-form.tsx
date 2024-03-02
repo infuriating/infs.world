@@ -4,19 +4,26 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { toast } from "sonner";
 
 export default function ContactForm({
   send,
 }: {
-  send: (data: { name: string; email: string; message: string }) => void;
+  send: (
+    data: { name: string; email: string; message: string },
+    gReCaptchaToken: string,
+  ) => void;
 }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const router = useRouter();
 
   const submit = (data: { name: string; email: string; message: string }) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -34,17 +41,25 @@ export default function ContactForm({
     if (data.message.length > 400)
       return toast.error("Message is too long! Please shorten it!");
 
-    send(data);
+    if (!executeRecaptcha) {
+      return toast.error("Recaptcha is not ready yet!");
+    }
 
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
+    executeRecaptcha("formSubmission").then((gReCaptchaToken) => {
+      send(data, gReCaptchaToken);
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+      toast.success(
+        `Hi ${data.name}! Your message has been sent! You'll receive a confirmation email shortly.`,
+      );
     });
 
-    toast.success(
-      `Hi ${data.name}! Your message has been sent! You'll receive a confirmation email shortly.`,
-    );
+    router.push("/");
   };
 
   return (

@@ -10,7 +10,8 @@ import {
 import { Resend } from "resend";
 import RecipientEmail from "@/emails/email-recipient";
 import SenderEmail from "@/emails/email-sender";
-import { redirect } from "next/navigation";
+import GoogleCaptchaWrapper from "@/components/GoogleCaptchaWrapper";
+import { toast } from "sonner";
 
 type emailData = {
   name: string;
@@ -19,10 +20,26 @@ type emailData = {
 };
 
 export default function page() {
-  async function send({ name, email, message }: emailData) {
+  async function send(
+    { name, email, message }: emailData,
+    gReCaptchaToken: string,
+  ) {
     "use server";
 
     const resend = new Resend(process.env.RESEND_API_KEY);
+
+    const recaptchaResponse = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${gReCaptchaToken}`,
+      {
+        method: "POST",
+      },
+    );
+    const recaptchaData = await recaptchaResponse.json();
+
+    if (!recaptchaData.success)
+      return "There was an error regarding your captcha! Please try again.";
+    if (recaptchaData.score < 0.5)
+      return "Could not verify you as a human! Please try again.";
 
     const recipientEmail = await resend.emails.send({
       from: `Luca Kuiper <${process.env.RESEND_MAIL_FROM}>`,
@@ -46,10 +63,7 @@ export default function page() {
       }),
     });
 
-    console.log(recipientEmail);
-    console.log(senderEmail);
-
-    redirect("/");
+    return { recipientEmail, senderEmail };
   }
 
   return (
@@ -63,7 +77,9 @@ export default function page() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <ContactForm send={send} />
+          <GoogleCaptchaWrapper>
+            <ContactForm send={send} />
+          </GoogleCaptchaWrapper>
         </CardContent>
       </Card>
     </div>
