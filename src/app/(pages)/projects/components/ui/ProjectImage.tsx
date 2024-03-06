@@ -9,9 +9,9 @@ export default function ProjectImage({
   image: string;
 }) {
   return (
-    <div className="relative aspect-video w-96 overflow-hidden rounded-md border">
+    <div className="relative aspect-video w-full overflow-hidden rounded-md border">
       <Image
-        className="h-full object-cover blur-sm transition-all group-hover:blur-none"
+        className="h-full w-full object-cover blur-sm transition-all group-hover:blur-none"
         src={image}
         alt={title}
         width={384}
