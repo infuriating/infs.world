@@ -15,9 +15,9 @@ export default function ProjectItem({
   image: string;
 }) {
   return (
-    <div className="group w-max rounded-lg border p-4">
+    <div className="group w-full rounded-lg border p-4">
       <ProjectImage image={image} title={title} />
-      <p className="mt-2 line-clamp-2 max-w-[384px] text-sm text-muted-foreground">
+      <p className="mt-2 line-clamp-2 max-w-full text-sm text-muted-foreground">
         {description}
       </p>
       <Link href={slug}>
