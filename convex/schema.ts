@@ -11,6 +11,17 @@ export default defineSchema({
     tags: v.optional(v.array(v.string())),
     github: v.optional(v.string()),
     website: v.optional(v.string()),
+    collaborators: v.optional(
+      v.array(
+        v.object({
+          name: v.string(),
+          role: v.string(),
+          github: v.optional(v.string()),
+          linkedin: v.optional(v.string()),
+          website: v.optional(v.string()),
+        }),
+      ),
+    ),
     inDevelopment: v.boolean(),
   }),
 });
