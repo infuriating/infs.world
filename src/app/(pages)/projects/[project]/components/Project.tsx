@@ -7,6 +7,7 @@ import { LinkIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Github, X } from "lucide-react";
 import ProjectCarousel from "./ProjectCarousel";
+import ProjectCollaborators from "./ProjectCollaborators";
 
 export default function Project(params: {
   preloadedProject: Preloaded<typeof api.project.getProject>;
@@ -19,6 +20,11 @@ export default function Project(params: {
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <ProjectCarousel project={project} />
           <div className="flex flex-col justify-center space-y-4">
+            {project.inDevelopment && (
+              <div className="rounded-md bg-purple-950 px-4 py-2 text-center text-white">
+                This project is currently in development
+              </div>
+            )}
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                 {project.title}
@@ -42,7 +48,10 @@ export default function Project(params: {
                 ))}
               </p>
             </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
+            {project.collaborators && project.collaborators.length > 0 && (
+              <ProjectCollaborators collaborators={project.collaborators} />
+            )}
+            <div className="flex flex-col gap-2 min-[450px]:flex-row">
               {project.github && (
                 <Link href={project.github} target="_blank">
                   <Button className="flex gap-x-2" variant={"outline"}>
@@ -52,12 +61,12 @@ export default function Project(params: {
               )}
               {project.website ? (
                 <Link href={project.website} target="_blank">
-                  <Button className="flex gap-x-2">
+                  <Button className="flex w-max gap-x-2">
                     <LinkIcon /> Visit Live Website
                   </Button>
                 </Link>
               ) : (
-                <Button className="flex gap-x-2" disabled>
+                <Button className="flex w-max gap-x-2" disabled>
                   <X /> Live Website is not available
                 </Button>
               )}
