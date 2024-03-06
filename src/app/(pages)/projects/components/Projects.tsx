@@ -40,7 +40,7 @@ export default function Projects(params: {
         selectedTags={selectedTags}
         setSelectedTags={setSelectedTags}
       />
-      <div className="grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 place-items-center gap-6 px-8 md:grid-cols-2 xl:grid-cols-3">
         {filteredProjects.map((project) => (
           <ProjectItem
             key={project._id}
