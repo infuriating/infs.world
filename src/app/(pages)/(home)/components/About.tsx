@@ -23,7 +23,7 @@ export default function About() {
         <SectionTitle title="About me" />
         <div className="flex flex-col gap-y-4 text-lg">
           <p>
-            I&apos;m Luca Kuiper, a 20-year-old{" "}
+            I&apos;m Luca Kuiper, a 21-year-old{" "}
             <GradientText className="font-medium" text="full-stack developer" />{" "}
             based in the Netherlands. I specialize in web development using
             React, with Next.js as my metaframework of choice.
