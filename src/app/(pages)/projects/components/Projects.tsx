@@ -48,6 +48,7 @@ export default function Projects(params: {
             slug={`/projects/${project.slug}`}
             title={project.title}
             description={project.description}
+            inDevelopment={project.inDevelopment}
           />
         ))}
       </div>

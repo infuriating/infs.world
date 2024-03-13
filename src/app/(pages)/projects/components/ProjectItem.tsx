@@ -8,15 +8,17 @@ export default function ProjectItem({
   title,
   description,
   image,
+  inDevelopment,
 }: {
   slug: string;
   title: string;
   description: string;
   image: string;
+  inDevelopment: boolean;
 }) {
   return (
     <div className="group w-full rounded-lg border p-4">
-      <ProjectImage image={image} title={title} />
+      <ProjectImage image={image} title={title} inDevelopment={inDevelopment} />
       <p className="mt-2 line-clamp-2 max-w-full text-sm text-muted-foreground">
         {description}
       </p>
