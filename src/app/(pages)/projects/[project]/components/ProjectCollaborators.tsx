@@ -20,7 +20,7 @@ export default function ProjectCollaborators({
       <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl xl:text-4xl/none">
         Collaborators
       </h2>
-      <div className="flex max-w-[600px] gap-x-4">
+      <div className="grid max-w-[600px] gap-y-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
         {collaborators.map((collaborator, i) => (
           <div
             className="flex w-72 flex-col items-center rounded-sm border border-white/20 bg-black/0 px-4 py-1.5 transition-all hover:bg-white/20"
