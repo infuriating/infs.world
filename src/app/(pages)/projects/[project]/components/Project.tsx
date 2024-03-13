@@ -55,7 +55,7 @@ export default function Project(params: {
               {project.github && (
                 <Link href={project.github} target="_blank">
                   <Button className="flex gap-x-2" variant={"outline"}>
-                    <Github /> View on GitHub
+                    <Github fill="white" /> View on GitHub
                   </Button>
                 </Link>
               )}
