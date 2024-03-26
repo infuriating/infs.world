@@ -24,4 +24,10 @@ export default defineSchema({
     ),
     inDevelopment: v.boolean(),
   }),
+  blogPosts: defineTable({
+    slug: v.string(),
+    title: v.string(),
+    content: v.string(),
+    tags: v.array(v.string()),
+  }),
 });
