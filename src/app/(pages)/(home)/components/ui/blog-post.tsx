@@ -1,6 +1,7 @@
 import GradientText from "@/components/ui/gradient-text";
 import Link from "next/link";
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 export default function BlogPost({
   slug,
@@ -9,8 +10,10 @@ export default function BlogPost({
 }: {
   slug: string;
   title: string;
-  content: string;
+  content: string[];
 }) {
+  const contentText = content.join("\n");
+
   return (
     <Link href={`/blog/${slug}`} className="group text-muted-foreground">
       <GradientText
@@ -18,7 +21,7 @@ export default function BlogPost({
         text={title}
       />
       <p className="mb-2 line-clamp-3 max-w-80 text-base transition-all group-hover:text-white sm:max-w-md lg:mb-0">
-        {content}
+        <ReactMarkdown>{contentText}</ReactMarkdown>
       </p>
     </Link>
   );
