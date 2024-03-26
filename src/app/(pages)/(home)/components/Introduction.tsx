@@ -32,7 +32,7 @@ export default function Introduction() {
           }}
         >
           <p className="pt-2">Get in touch with me!</p>
-          <div className="mt-2 flex gap-x-4">
+          <div className="mt-2 flex gap-x-3">
             <SocialIcon
               url="https://linkedin.com/in/lucakuiper"
               medium="LinkedIn"
