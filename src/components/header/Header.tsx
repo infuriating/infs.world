@@ -17,6 +17,10 @@ const routes = [
     href: "/projects",
   },
   {
+    name: "Blog",
+    href: "/blog",
+  },
+  {
     name: "Contact",
     href: "/contact",
   },
