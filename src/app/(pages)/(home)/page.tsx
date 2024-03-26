@@ -3,6 +3,7 @@ import Introduction from "./components/Introduction";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import WorkWrapper from "./components/work/WorkWrapper";
+import BlogWrapper from "./components/blog/BlogWrapper";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
           <About />
           <Skills />
           <WorkWrapper />
+          <BlogWrapper />
         </div>
       </main>
     </div>
