@@ -1,0 +1,123 @@
+.react-markdown {
+  @apply break-words;
+}
+.react-markdown h1 {
+  @apply font-bold;
+  @apply text-2xl;
+  @apply lg:text-3xl;
+  @apply mb-4;
+}
+
+.react-markdown h2 {
+  @apply text-2xl;
+  @apply mb-3;
+  @apply lg:text-xl;
+}
+
+.react-markdown h3 {
+  @apply text-xl;
+  @apply mb-2;
+  @apply lg:text-lg;
+}
+
+.react-markdown h4 {
+  @apply text-lg;
+  @apply mb-2;
+  @apply lg:text-base;
+}
+
+.react-markdown h5 {
+  @apply text-base;
+  @apply mb-1;
+  @apply lg:text-sm;
+}
+
+.react-markdown h6 {
+  @apply text-sm;
+  @apply mb-1;
+  @apply lg:text-xs;
+}
+
+.react-markdown p {
+  @apply mb-4;
+  @apply lg:mb-4;
+}
+
+.react-markdown ul {
+  @apply list-disc;
+  @apply ml-6;
+  @apply mb-4;
+  @apply lg:mb-4;
+}
+
+.react-markdown ol {
+  @apply list-decimal;
+  @apply ml-6;
+  @apply mb-4;
+  @apply lg:mb-4;
+}
+
+.react-markdown li {
+  @apply mb-2;
+  @apply lg:mb-2;
+}
+
+.react-markdown a {
+  @apply text-blue-500;
+  @apply underline;
+  @apply lg:text-blue-500;
+}
+
+.react-markdown blockquote {
+  @apply border-l-4;
+  @apply border-gray-300;
+  @apply pl-4;
+  @apply italic;
+  @apply mb-4;
+  @apply lg:mb-4;
+}
+
+.react-markdown code {
+  @apply px-1;
+  @apply py-0.5;
+  @apply rounded-md;
+  @apply lg:px-1;
+  @apply lg:py-0.5;
+}
+
+.react-markdown pre {
+  @apply py-2;
+  @apply rounded-md;
+  @apply overflow-auto;
+  @apply w-max;
+}
+
+.react-markdown hr {
+  @apply border-gray-300;
+  @apply my-4;
+  @apply lg:my-4;
+}
+
+.react-markdown table {
+  @apply border-collapse;
+  @apply w-full;
+  @apply mb-4;
+  @apply lg:mb-4;
+}
+
+.react-markdown th,
+.react-markdown td {
+  @apply border;
+  @apply border-gray-300;
+  @apply px-4;
+  @apply py-2;
+  @apply lg:px-4;
+  @apply lg:py-2;
+}
+
+.react-markdown img {
+  @apply my-4;
+  @apply max-w-full;
+  @apply h-auto;
+  @apply max-h-96;
+}
