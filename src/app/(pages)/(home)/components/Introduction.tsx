@@ -6,7 +6,6 @@ import React from "react";
 import SocialIcon from "./ui/social-icon";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import GradientText from "@/components/ui/gradient-text";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -32,10 +31,8 @@ export default function Introduction() {
             ease: cubicBezier(0.22, 0.61, 0.36, 1),
           }}
         >
-          <p>
-            Get in touch via the <GradientText text="links below" />
-          </p>
-          <div className="mt-2 flex justify-center gap-x-4">
+          <p className="pt-2">Get in touch with me!</p>
+          <div className="mt-2 flex gap-x-4">
             <SocialIcon
               url="https://linkedin.com/in/lucakuiper"
               medium="LinkedIn"
