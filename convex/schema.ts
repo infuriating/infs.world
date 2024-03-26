@@ -28,7 +28,7 @@ export default defineSchema({
     image: v.optional(v.string()),
     slug: v.string(),
     title: v.string(),
-    content: v.string(),
+    content: v.array(v.string()),
     tags: v.array(v.string()),
   }),
 });
