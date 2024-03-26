@@ -25,6 +25,7 @@ export default defineSchema({
     inDevelopment: v.boolean(),
   }),
   blogPosts: defineTable({
+    image: v.optional(v.string()),
     slug: v.string(),
     title: v.string(),
     content: v.string(),
