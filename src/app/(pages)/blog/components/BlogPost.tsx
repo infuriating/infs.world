@@ -3,10 +3,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 export default function BlogPost({ blogPost }: { blogPost: any }) {
+  const content = blogPost.content.join("\n");
+
   return (
-    <div className="grid gap-6 px-4 md:gap-8 md:px-6 lg:grid-cols-2 xl:gap-10">
+    <div className="grid w-full gap-6 px-4 md:gap-8 md:px-6 lg:grid-cols-2 xl:gap-10">
       <div className="space-y-4">
         <div className="space-y-2">
           <span className="text-sm font-medium text-neutral-500">
@@ -16,8 +19,8 @@ export default function BlogPost({ blogPost }: { blogPost: any }) {
             {blogPost.title}
           </h2>
         </div>
-        <p className="line-clamp-3 text-neutral-400 lg:line-clamp-5">
-          {blogPost.content}
+        <p className="line-clamp-3 text-neutral-400">
+          <ReactMarkdown>{content}</ReactMarkdown>
         </p>
         <div>
           <Link
