@@ -52,7 +52,7 @@ export default function BlogPost(params: {
             src={blogPost.image}
           />
         ) : (
-          <Skeleton className="h-full min-h-32 w-full lg:min-h-64" />
+          <Skeleton className="h-96 h-full w-full" />
         )}
       </div>
       <div className="max-w-screen space-y-4 md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">

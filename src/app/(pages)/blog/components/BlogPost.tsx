@@ -22,7 +22,7 @@ export default function BlogPost({ blogPost }: { blogPost: any }) {
             src={blogPost.image}
           />
         ) : (
-          <Skeleton className="h-full min-h-32 w-full" />
+          <Skeleton className="h-96 w-full" />
         )}
       </div>
       <div className="relative flex h-full flex-col justify-end space-y-3">
