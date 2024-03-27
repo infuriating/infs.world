@@ -13,11 +13,13 @@
 
 .react-markdown h2 {
   @apply text-xl lg:text-2xl;
+  @apply font-semibold;
   @apply mb-3;
 }
 
 .react-markdown h3 {
   @apply text-lg;
+  @apply font-medium;
   @apply mb-2;
 }
 
