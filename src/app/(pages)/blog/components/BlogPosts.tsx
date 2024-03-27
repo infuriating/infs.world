@@ -18,6 +18,7 @@ export default function BlogPosts(params: {
         <InAnimationWrapper
           className="flex-col items-center gap-y-4"
           delay={i * 0.1}
+          side={i % 2 === 0 ? "up" : "down"}
           key={blogPost._id}
         >
           <BlogPost blogPost={blogPost} />
