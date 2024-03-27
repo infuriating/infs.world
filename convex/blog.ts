@@ -3,7 +3,7 @@ import { mutation, query } from "./_generated/server";
 
 export const getAll = query({
   handler: async (ctx) => {
-    return await ctx.db.query("blogPosts").collect();
+    return await ctx.db.query("blogPosts").order("desc").collect();
   },
 });
 
