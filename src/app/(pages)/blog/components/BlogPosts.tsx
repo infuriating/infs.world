@@ -12,11 +12,11 @@ export default function BlogPosts(params: {
   const blogPosts = usePreloadedQuery(params.preloadedProjects);
 
   return (
-    <div className="flex flex-col gap-y-8 py-6 md:py-12 lg:py-16">
+    <div className="flex flex-col gap-y-8 py-6">
       {blogPosts.map((blogPost) => (
         <div key={blogPost._id} className="flex flex-col items-center gap-y-4">
           <BlogPost blogPost={blogPost} />
-          <Separator className="w-full lg:w-3/4" />
+          <Separator className="w-full lg:mt-4 lg:w-3/4" />
         </div>
       ))}
     </div>
