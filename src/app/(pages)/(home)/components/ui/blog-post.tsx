@@ -1,7 +1,9 @@
 import GradientText from "@/components/ui/gradient-text";
 import Link from "next/link";
 import React from "react";
-import ReactMarkdown from "react-markdown";
+import dynamic from "next/dynamic";
+
+const ReactMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
 
 export default function BlogPost({
   slug,
