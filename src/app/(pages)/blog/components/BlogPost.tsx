@@ -10,9 +10,22 @@ export default function BlogPost({ blogPost }: { blogPost: any }) {
 
   return (
     <div className="grid w-full gap-6 px-4 md:gap-8 md:px-6 lg:grid-cols-2 xl:gap-10">
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <span className="text-sm font-medium text-neutral-500">
+      <div className="aspect-image w-full overflow-hidden rounded-lg">
+        {blogPost.image ? (
+          <Image
+            alt={blogPost.title}
+            className="aspect-image max-h-96 w-full rounded-lg object-cover"
+            height={340}
+            width={500}
+            src={blogPost.image}
+          />
+        ) : (
+          <Skeleton className="h-full min-h-32 w-full" />
+        )}
+      </div>
+      <div className="relative flex h-full flex-col justify-end space-y-3">
+        <div className="mt-8 space-y-2">
+          <span className="absolute top-0 rounded-md border border-neutral-100/15 bg-neutral-100/5 px-1 py-0.5 text-sm font-medium text-neutral-500">
             {new Date(blogPost._creationTime).toLocaleDateString()}
           </span>
           <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl xl:leading-[3.5rem]">
@@ -26,26 +39,13 @@ export default function BlogPost({ blogPost }: { blogPost: any }) {
           <Link
             className={buttonVariants({
               variant: "link",
-              className: "px-2",
+              className: "px-0",
             })}
             href={`/blog/${blogPost.slug}`}
           >
             &rarr; Read more
           </Link>
         </div>
-      </div>
-      <div className="aspect-image md:aspect-none w-full overflow-hidden rounded-lg md:order-first md:rounded-none">
-        {blogPost.image ? (
-          <Image
-            alt="Blog post image"
-            className="aspect-image object-cover"
-            height={340}
-            src="/logo.png"
-            width={500}
-          />
-        ) : (
-          <Skeleton className="h-full min-h-32 w-full" />
-        )}
       </div>
     </div>
   );
