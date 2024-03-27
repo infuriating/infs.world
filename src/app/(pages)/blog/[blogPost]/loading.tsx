@@ -10,7 +10,10 @@ export default function loading() {
   const blogPost = {
     _id: 0,
     title: "Loading blog post...",
-    content: ["# Loading...", "## Loading...", "### Loading..."],
+    content: [
+      "![Loading Image (Gengar)](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db7c6753-956b-4327-8db9-27975ad43253/db2bpd5-0b5cd9ea-53cc-409c-91bb-1651be393b6c.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RiN2M2NzUzLTk1NmItNDMyNy04ZGI5LTI3OTc1YWQ0MzI1M1wvZGIyYnBkNS0wYjVjZDllYS01M2NjLTQwOWMtOTFiYi0xNjUxYmUzOTNiNmMuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.4QBd2gjsm3Vh9tn6NbGuZwz5icDzNLe5QSC2uFlzpdI)",
+      "# Gengar is currently helping us out!",
+    ],
     _creationTime: Date.now(),
   };
 
