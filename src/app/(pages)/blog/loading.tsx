@@ -16,7 +16,7 @@ export default function loading() {
   );
 
   return (
-    <div className="flex flex-col gap-y-8 py-6">
+    <div className="flex animate-pulse flex-col gap-y-8 py-6">
       {loadingBlogPosts.map((blogPost, i) => (
         <div className="flex-col items-center gap-y-4" key={blogPost._id}>
           <BlogPost blogPost={blogPost} />

@@ -17,9 +17,9 @@ export default function loading() {
   const content = blogPost.content.join("\n");
 
   return (
-    <div className="grid gap-6 px-4 md:gap-8 md:px-6 lg:place-items-center xl:gap-10">
+    <div className="grid animate-pulse gap-6 px-4 md:gap-8 md:px-6 lg:place-items-center xl:gap-10">
       <div className="aspect-image md:aspect-none w-full overflow-hidden rounded-lg md:order-first md:rounded-none">
-        <Skeleton className="h-full min-h-32 w-full lg:min-h-64" />
+        <Skeleton className="h-96" />
       </div>
       <div className="max-w-screen space-y-4 md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
         <div className="space-y-2">
