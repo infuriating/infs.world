@@ -41,7 +41,7 @@ export default function BlogPost(params: {
   const content = blogPost.content.join("\n");
 
   return (
-    <div className="grid gap-6 px-4 md:gap-8 md:px-6 lg:place-items-center xl:gap-10">
+    <div className="grid gap-6 px-4 py-4 md:gap-8 md:px-6 lg:place-items-center xl:gap-10">
       <div className="aspect-image md:aspect-none w-full overflow-hidden rounded-lg md:order-first md:rounded-none">
         {blogPost.image ? (
           <Image
@@ -55,7 +55,7 @@ export default function BlogPost(params: {
           <Skeleton className="h-96 w-full" />
         )}
       </div>
-      <div className="max-w-screen space-y-4 md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+      <div className="w-full space-y-4 md:w-[48rem] lg:w-[56rem] xl:w-[64rem]">
         <div className="space-y-2">
           <span className="rounded-md border border-neutral-100/15 bg-neutral-100/5 px-1 py-0.5 text-sm font-medium text-neutral-500">
             {new Date(blogPost._creationTime).toLocaleDateString()}
