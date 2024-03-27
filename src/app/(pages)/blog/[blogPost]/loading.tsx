@@ -23,7 +23,7 @@ export default function loading() {
       </div>
       <div className="max-w-screen space-y-4 md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
         <div className="space-y-2">
-          <span className="w-full text-sm font-medium text-neutral-500">
+          <span className="rounded-md border border-neutral-100/15 bg-neutral-100/5 px-1 py-0.5 text-sm font-medium text-neutral-500">
             {new Date(blogPost._creationTime).toLocaleDateString()}
           </span>
           <div className="w-max">
