@@ -3,7 +3,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import ReactMarkdown from "react-markdown";
+import dynamic from "next/dynamic";
+
+const ReactMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
 
 export default function BlogPost({ blogPost }: { blogPost: any }) {
   const content = blogPost.content.join("\n");
