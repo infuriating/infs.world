@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import dynamic from "next/dynamic";
+import { calculateReadTime } from "@/lib/functions";
 
 const ReactMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
 
@@ -33,6 +34,9 @@ export default function BlogPost({ blogPost }: { blogPost: any }) {
           <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl xl:leading-[3.5rem]">
             {blogPost.title}
           </h2>
+          <p className="text-xs text-neutral-600 underline underline-offset-2">
+            {calculateReadTime(content)} min read
+          </p>
         </div>
         <p className="line-clamp-3 text-neutral-400">
           <ReactMarkdown>{content}</ReactMarkdown>

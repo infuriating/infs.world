@@ -2,6 +2,7 @@ import GradientText from "@/components/ui/gradient-text";
 import Link from "next/link";
 import React from "react";
 import dynamic from "next/dynamic";
+import { calculateReadTime } from "@/lib/functions";
 
 const ReactMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
 
@@ -24,6 +25,9 @@ export default function BlogPost({
       />
       <p className="mb-2 line-clamp-3 max-w-80 text-base transition-all group-hover:text-white sm:max-w-md lg:mb-0">
         <ReactMarkdown>{contentText}</ReactMarkdown>
+      </p>
+      <p className="text-xs text-neutral-600">
+        {calculateReadTime(contentText)} min read
       </p>
     </Link>
   );
