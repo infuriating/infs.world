@@ -9,10 +9,6 @@ import Image from "next/image";
 
 const routes = [
   {
-    name: "Home",
-    href: "/",
-  },
-  {
     name: "Projects",
     href: "/projects",
   },
@@ -31,10 +27,10 @@ export default function Header() {
 
   const MobileHeader = () => (
     <div className="fixed z-50 flex h-16 w-screen items-center justify-between bg-black/50 px-4 backdrop-blur-lg md:hidden">
-      <Link target="_blank" href={"https://github.com/infuriating/infs.world"}>
+      <Link href={"/"}>
         <Image
           src={"/logo.png"}
-          className="h-14 object-contain"
+          className="h-12 object-contain"
           alt="infs.world logo"
           width={100}
           height={56}
@@ -46,10 +42,10 @@ export default function Header() {
 
   const DesktopHeader = () => (
     <div className="fixed z-50 hidden h-16 w-screen items-center justify-between bg-black/50 px-4 backdrop-blur-lg md:flex">
-      <Link target="_blank" href={"https://github.com/infuriating/infs.world"}>
+      <Link href={"/"}>
         <Image
           src={"/logo.png"}
-          className="h-14 object-contain"
+          className="h-12 object-contain"
           alt="infs.world logo"
           width={100}
           height={56}
@@ -59,7 +55,7 @@ export default function Header() {
         {routes.map((route) => (
           <Link key={route.href} href={route.href}>
             <p
-              className={`${pathname === route.href ? "text-white" : "text-muted-foreground"} font-medium text-muted-foreground transition-all hover:text-white`}
+              className={`${pathname.includes(route.href) ? "text-white" : "text-muted-foreground"} font-medium text-muted-foreground transition-all hover:text-white`}
             >
               {route.name}
             </p>
