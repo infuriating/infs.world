@@ -16,8 +16,10 @@ export default function Page({
           <div className="hidden aspect-square h-36 w-36 rounded-full bg-gradient-to-br from-fuchsia-800 to-transparent opacity-90 blur-[105px] lg:absolute lg:-bottom-14 lg:-left-14 lg:block"></div>
         </div>
       </div>
-      <Notification message="Check out my new blog!" nav={"/blog"} />
-      <Header />
+      <div className="fixed z-50 w-full">
+        <Notification message="Check out my new blog!" nav={"/blog"} />
+        <Header />
+      </div>
       <Grain />
 
       <div className="flex flex-col justify-center px-4 pt-20 lg:pt-28">
