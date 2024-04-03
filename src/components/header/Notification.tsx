@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
+interface NotificationProps {
+  message: string;
+  visible: boolean;
+}
+
 export default function Notification({
   message,
   nav,
@@ -11,14 +16,36 @@ export default function Notification({
   message: string;
   nav: string;
 }) {
-  const [show, setShow] = useState(true);
+  let notification: NotificationProps;
+  notification = JSON.parse(localStorage.getItem("notification") || "{}");
+
+  const [data, setData] = useState(notification);
+  const [show, setShow] = useState(data.visible);
+
+  if (data.message !== message) {
+    setData({ message, visible: true });
+    localStorage.setItem(
+      "notification",
+      JSON.stringify({ message, visible: true }),
+    );
+  }
+
+  const handleClick = () => {
+    setShow(false);
+    setData({ message, visible: false });
+    localStorage.setItem(
+      "notification",
+      JSON.stringify({ message, visible: false }),
+    );
+  };
+
   return (
     <>
       {show && (
         <div className="relative flex items-center justify-center bg-purple-950 py-1.5 text-xs">
           <div
             className="absolute right-2 cursor-pointer"
-            onClick={() => setShow(false)}
+            onClick={handleClick}
           >
             X
           </div>
