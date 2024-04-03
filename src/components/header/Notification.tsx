@@ -22,6 +22,11 @@ export default function Notification({
   const [data, setData] = useState(notification);
   const [show, setShow] = useState(data.visible);
 
+  if (!notification.message) {
+    setData({ message, visible: true });
+    setShow(true);
+  }
+
   if (data.message !== message) {
     setData({ message, visible: true });
     localStorage.setItem(
