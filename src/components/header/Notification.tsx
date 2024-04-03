@@ -3,6 +3,7 @@
 import { ArrowRight, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 interface NotificationProps {
   message: string;
@@ -57,8 +58,19 @@ export default function Notification({
               size={14}
             />
           </div>
-          <Link href={nav} className="flex items-center gap-x-1">
-            {message} <ArrowRight size={14} />
+          <Link
+            onClick={handleClick}
+            href={nav}
+            className="w-max overflow-hidden"
+          >
+            <motion.p
+              className="flex items-center gap-x-1"
+              initial={{ x: "-125%" }}
+              animate={{ x: 0 }}
+              transition={{ delay: 0.15, duration: 0.85, ease: "easeInOut" }}
+            >
+              {message} <ArrowRight size={14} />
+            </motion.p>
           </Link>
         </div>
       )}
