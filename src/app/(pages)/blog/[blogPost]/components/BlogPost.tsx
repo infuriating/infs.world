@@ -6,7 +6,6 @@ import Image from "next/image";
 import React from "react";
 import { api } from "../../../../../../convex/_generated/api";
 import ReactMarkdown from "react-markdown";
-import "./blogpost.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula as SyntaxHighlightStyle } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Separator } from "@/components/ui/separator";
@@ -70,8 +69,13 @@ export default function BlogPost(params: {
               <Separator className="mt-1.5 bg-neutral-700" />
             </div>
           </div>
-          {/* @ts-ignore */}
-          <ReactMarkdown className={"react-markdown"} components={components}>
+          <ReactMarkdown
+            className={
+              "prose prose-invert prose-h2:mt-2 prose-img:rounded-sm prose-img:shadow-md"
+            }
+            // @ts-ignore
+            components={components}
+          >
             {content}
           </ReactMarkdown>
         </div>

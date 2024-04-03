@@ -4,7 +4,6 @@ import React from "react";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import ReactMarkdown from "react-markdown";
-import "./components/blogpost.css";
 
 export default function loading() {
   const blogPost = {
@@ -36,8 +35,13 @@ export default function loading() {
             <Separator className="mt-1.5 bg-neutral-700" />
           </div>
         </div>
-        {/* @ts-ignore */}
-        <ReactMarkdown className={"react-markdown"}>{content}</ReactMarkdown>
+        <ReactMarkdown
+          className={
+            "prose prose-invert prose-h2:mt-2 prose-img:rounded-sm prose-img:shadow-md"
+          }
+        >
+          {content}
+        </ReactMarkdown>
       </div>
     </div>
   );
