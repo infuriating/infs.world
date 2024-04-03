@@ -2,7 +2,11 @@ import React from "react";
 import Header from "./header/Header";
 import Grain from "./Grain";
 import ReturnButton from "./ReturnButton";
-import Notification from "./header/Notification";
+
+import dynamic from "next/dynamic";
+const Notification = dynamic(() => import("./header/Notification"), {
+  ssr: false,
+});
 
 export default function Page({
   children,
