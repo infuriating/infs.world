@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -47,7 +47,10 @@ export default function Notification({
             className="absolute right-2 cursor-pointer"
             onClick={handleClick}
           >
-            X
+            <X
+              className="transition-all duration-100 hover:scale-110"
+              size={14}
+            />
           </div>
           <Link href={nav} className="flex items-center gap-x-1">
             {message} <ArrowRight size={14} />
