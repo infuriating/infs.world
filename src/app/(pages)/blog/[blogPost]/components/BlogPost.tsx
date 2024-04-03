@@ -42,7 +42,7 @@ export default function BlogPost(params: {
   const content = blogPost.content.join("\n");
 
   return (
-    <>
+    <div className="relative">
       <BlogPostScrollBar />
       <div className="grid gap-6 px-4 py-4 md:gap-8 md:px-6 lg:place-items-center xl:gap-10">
         <div className="aspect-image md:aspect-none w-full overflow-hidden rounded-lg md:order-first md:rounded-none">
@@ -76,6 +76,6 @@ export default function BlogPost(params: {
           </ReactMarkdown>
         </div>
       </div>
-    </>
+    </div>
   );
 }
