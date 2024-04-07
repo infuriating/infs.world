@@ -31,4 +31,16 @@ export default defineSchema({
     content: v.array(v.string()),
     tags: v.array(v.string()),
   }),
+  games: defineTable({
+    title: v.string(),
+    description: v.string(),
+    status: v.union(
+      v.literal("played"),
+      v.literal("currentlyPlaying"),
+      v.literal("completed"),
+    ),
+    difficulties: v.optional(v.array(v.string())),
+    hoursPlayed: v.optional(v.number()),
+    platform: v.array(v.string()),
+  }),
 });
