@@ -9,6 +9,10 @@ import Image from "next/image";
 
 const routes = [
   {
+    name: "About",
+    href: "/about",
+  },
+  {
     name: "Projects",
     href: "/projects",
   },
