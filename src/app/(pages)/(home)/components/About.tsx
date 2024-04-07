@@ -1,23 +1,14 @@
 "use client";
 
 import React from "react";
-import { motion, cubicBezier } from "framer-motion";
 import Tag from "./ui/tag";
 import GradientText from "@/components/ui/gradient-text";
 import SectionTitle from "./ui/section-title";
+import Link from "next/link";
 
 export default function About() {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{
-        delay: 3.25,
-        duration: 1.25,
-        ease: cubicBezier(0.22, 0.61, 0.36, 1),
-      }}
-      className="flex justify-center opacity-0"
-    >
+    <div className="flex justify-center">
       <div className="relative flex w-full max-w-xl flex-col">
         <Tag number={1} />
         <SectionTitle title="About me" />
@@ -37,8 +28,14 @@ export default function About() {
             myself physically by working out. I also love to play video games
             and spend time with my girlfriend.
           </p>
+          <Link
+            href={"/about"}
+            className="underline underline-offset-2 transition-all hover:text-neutral-300 hover:no-underline"
+          >
+            If you&apos;d like to know more about me, visit my about page!
+          </Link>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion, cubicBezier } from "framer-motion";
 import Tag from "../ui/tag";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
@@ -16,16 +15,7 @@ export default function Work(params: {
   const projects = usePreloadedQuery(params.preloadedProjects);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{
-        delay: 4.25,
-        duration: 0.75,
-        ease: cubicBezier(0.22, 0.61, 0.36, 1),
-      }}
-      className="flex justify-center opacity-0"
-    >
+    <div className="flex justify-center">
       <div className="relative flex w-full max-w-xl flex-col">
         <Tag number={3} />
         <SectionTitle title="My work" />
@@ -46,6 +36,6 @@ export default function Work(params: {
           <MoveRight /> <span>View more of my work</span>
         </Link>
       </div>
-    </motion.div>
+    </div>
   );
 }
