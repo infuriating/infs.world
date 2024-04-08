@@ -48,6 +48,15 @@ export default function GameList(params: {
               <AccordionContent className="flex flex-col gap-y-1.5">
                 <Separator className="mb-1" />
                 <p className="text-lg font-medium">{game.description}</p>
+                {game.rank && (
+                  <div className="flex flex-col gap-y-1">
+                    <p className="text-base font-medium">Rank</p>
+                    <p>
+                      Peak: {game.rank.peak}
+                      {game.rank.current && ` | Current: ${game.rank.current}`}
+                    </p>
+                  </div>
+                )}
                 {formatStatus(game.status) && (
                   <p className="text-base">{formatStatus(game.status)}</p>
                 )}

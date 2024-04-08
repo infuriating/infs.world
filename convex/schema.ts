@@ -39,6 +39,9 @@ export default defineSchema({
       v.literal("currentlyPlaying"),
       v.literal("completed"),
     ),
+    rank: v.optional(
+      v.object({ peak: v.string(), current: v.optional(v.string()) }),
+    ),
     difficulties: v.optional(v.array(v.string())),
     hoursPlayed: v.optional(v.number()),
     platform: v.array(v.string()),
