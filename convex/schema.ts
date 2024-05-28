@@ -7,7 +7,13 @@ export default defineSchema({
     title: v.string(),
     description: v.string(),
     images: v.array(v.string()),
-    technologies: v.array(v.string()),
+    technologies: v.array(
+      v.object({
+        name: v.string(),
+        url: v.string(),
+      }),
+    ),
+
     tags: v.optional(v.array(v.string())),
     github: v.optional(v.string()),
     website: v.optional(v.string()),
