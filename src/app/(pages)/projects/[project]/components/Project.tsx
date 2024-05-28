@@ -39,12 +39,14 @@ export default function Project(params: {
               </h2>
               <p className="max-w-[600px] md:text-xl">
                 {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="mx-0.5 inline-flex items-center rounded-full bg-secondary px-3 py-0.5 text-sm font-medium"
+                  <Link
+                    href={tech.url}
+                    target="_blank"
+                    key={tech.name}
+                    className="mx-0.5 inline-flex items-center rounded-full bg-secondary px-3 py-0.5 text-sm font-medium transition-all hover:bg-secondary/50"
                   >
-                    {tech}
-                  </span>
+                    {tech.name}
+                  </Link>
                 ))}
               </p>
             </div>
