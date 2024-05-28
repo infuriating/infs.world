@@ -33,7 +33,12 @@ export const addProject = mutation({
     description: v.string(),
     images: v.array(v.string()),
     inDevelopment: v.boolean(),
-    technologies: v.array(v.string()),
+    technologies: v.array(
+      v.object({
+        name: v.string(),
+        url: v.string(),
+      }),
+    ),
     collaborators: v.array(
       v.object({
         name: v.string(),
@@ -66,7 +71,6 @@ export const addProject = mutation({
       .replace(/[^a-zA-Z0-9]/g, "")
       .replace(/ /g, "-");
 
-    technologies = technologies[0].split(",");
     images = images[0].split(",");
     tags = tags[0].split(",");
 
@@ -94,7 +98,12 @@ export const updateProject = mutation({
     description: v.string(),
     images: v.array(v.string()),
     inDevelopment: v.boolean(),
-    technologies: v.array(v.string()),
+    technologies: v.array(
+      v.object({
+        name: v.string(),
+        url: v.string(),
+      }),
+    ),
     collaborators: v.array(
       v.object({
         name: v.string(),
@@ -151,7 +160,6 @@ export const updateProject = mutation({
       .toLowerCase()
       .replace(/[^a-zA-Z0-9]/g, "")
       .replace(/ /g, "-");
-    project.technologies = project.technologies[0].split(",");
     project.images = project.images[0].split(",");
     project.tags && (project.tags = project.tags[0].split(","));
 
