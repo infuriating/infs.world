@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Page from "@/components/Page";
 import ConvexClientProvider from "@/components/ConvexClientProvider";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
   title: "infs.world",
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <ConvexClientProvider>
         <body className={GeistSans.className}>
+          <NextTopLoader easing="ease" color="#701a75" showSpinner={false} />
           <Toaster />
           <Page>{children}</Page>
         </body>
