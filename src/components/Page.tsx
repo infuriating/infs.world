@@ -21,7 +21,10 @@ export default function Page({
         </div>
       </div>
       <div className="fixed z-50 w-full">
-        <Notification message="Check out my new blog!" nav={"/blog"} />
+        <Notification
+          message="I have added a new project!"
+          nav={"/projects/hollywood"}
+        />
         <Header />
       </div>
       <Grain />
