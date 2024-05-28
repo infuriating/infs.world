@@ -5,3 +5,11 @@ export const calculateReadTime = (text: string) => {
 
   return readTime;
 };
+
+export const getAgeFromBirthdate = (birthdate: string) => {
+  const ageDiff = Date.now() - new Date(birthdate).getTime();
+  const ageDate = new Date(ageDiff);
+  const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+  return age;
+};
