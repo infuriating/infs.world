@@ -1,14 +1,14 @@
 "use client";
 
+import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
+import { calculateReadTime } from "@/lib/functions";
 import { Preloaded, usePreloadedQuery } from "convex/react";
 import Image from "next/image";
-import React from "react";
-import { api } from "../../../../../../convex/_generated/api";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula as SyntaxHighlightStyle } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { Separator } from "@/components/ui/separator";
+import { api } from "../../../../../../convex/_generated/api";
 import BlogPostScrollBar from "./ScrollBar";
 
 const components = {
@@ -57,11 +57,17 @@ export default function BlogPost(params: {
             <Skeleton className="h-96 w-full" />
           )}
         </div>
-        <div className="w-full space-y-4 md:w-[48rem] lg:w-[56rem] xl:w-[64rem]">
-          <div className="space-y-2">
-            <span className="rounded-md border border-neutral-100/15 bg-neutral-100/5 px-1 py-0.5 text-sm font-medium text-neutral-500">
-              {new Date(blogPost._creationTime).toLocaleDateString()}
-            </span>
+        <div className="container w-full space-y-4">
+          <div className="space-y-4">
+            <div className="flex items-center gap-x-2">
+              <span className="rounded-md border border-neutral-100/15 bg-neutral-100/5 px-1 py-0.5 text-sm font-medium text-neutral-500">
+                {new Date(blogPost._creationTime).toLocaleDateString()}
+              </span>
+              <Separator orientation="horizontal" className="w-4" />
+              <p className="text-xs text-neutral-500">
+                {calculateReadTime(content)} min read
+              </p>
+            </div>
             <div className="w-max">
               <h2 className="text-4xl font-extrabold tracking-tight lg:text-5xl xl:leading-[3.5rem]">
                 {blogPost.title}
@@ -71,7 +77,7 @@ export default function BlogPost(params: {
           </div>
           <ReactMarkdown
             className={
-              "prose prose-invert prose-h2:mt-2 prose-img:rounded-sm prose-img:shadow-md"
+              "prose prose-invert pt-4 prose-img:rounded-sm prose-img:shadow-md"
             }
             // @ts-ignore
             components={components}
