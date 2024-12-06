@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
@@ -8,9 +8,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function ProjectCarousel({
   project,
@@ -26,25 +26,25 @@ export default function ProjectCarousel({
 
   return (
     <>
-      <Carousel className="ml-8 flex w-[300px] items-center lg:ml-4 lg:w-[500px] xl:w-[600px]">
+      <Carousel className="px-8">
         <CarouselContent>
           {project.images.map((image, i) => (
-            <CarouselItem key={image}>
+            <CarouselItem className="overflow-hidden" key={image}>
               <Image
                 onClick={() => fullscreenImage(i)}
                 src={image}
                 alt={project.title}
-                className="h-[169px] w-[300px] cursor-pointer rounded-xl border object-cover object-center lg:h-[281px] lg:w-[500px] xl:h-[337px] xl:w-[600px]"
+                className="h-[169px] w-full cursor-pointer rounded-xl border object-cover object-center transition-all duration-300 hover:scale-105 lg:h-[281px] xl:h-[337px]"
                 height="300"
-                width="550"
+                width="1000"
               />
             </CarouselItem>
           ))}
         </CarouselContent>
         {project.images.length > 1 && (
           <>
-            <CarouselNext />
-            <CarouselPrevious />
+            <CarouselNext className="absolute -right-2" />
+            <CarouselPrevious className="absolute -left-2" />
           </>
         )}
       </Carousel>

@@ -1,11 +1,9 @@
 "use client";
 
-import React from "react";
-import ResumeButton from "../ResumeButton";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import MobileDrawer from "./MobileDrawer";
-import Image from "next/image";
+import ResumeButton from "../ResumeButton";
 
 const routes = [
   {
@@ -17,8 +15,8 @@ const routes = [
     href: "/projects",
   },
   {
-    name: "Blog",
-    href: "/blog",
+    name: "Feed",
+    href: "/feed",
   },
   {
     name: "Contact",
@@ -40,7 +38,7 @@ export default function Header() {
           height={56}
         />
       </Link>
-      <MobileDrawer routes={routes} pathname={pathname} />
+      {/* <MobileDrawer routes={routes} pathname={pathname} /> */}
     </div>
   );
 

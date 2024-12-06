@@ -1,9 +1,9 @@
 "use client";
 
-import { useMotionValueEvent, useScroll, motion } from "framer-motion";
-import React, { useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useState } from "react";
 
-export default function BlogPostScrollBar() {
+export default function FeedScrollBar() {
   const [scrollY, setScrollY] = useState(0);
   const { scrollYProgress } = useScroll();
 

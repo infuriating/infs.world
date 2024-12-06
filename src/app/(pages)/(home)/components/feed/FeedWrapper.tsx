@@ -4,24 +4,25 @@ import Link from "next/link";
 import { api } from "../../../../../../convex/_generated/api";
 import SectionTitle from "../ui/section-title";
 import Tag from "../ui/tag";
-import Work from "./Work";
+import Feed from "./Feed";
 
-export default async function WorkWrapper() {
-  const projects = await fetchQuery(api.project.getLatestTwo);
+export default async function FeedWrapper() {
+  const feedPosts = await fetchQuery(api.feed.getLatestTwo);
+  if (!feedPosts) return null;
 
   return (
     <div className="flex justify-center">
       <div className="relative flex w-full max-w-xl flex-col">
-        <Tag number={3} />
-        <SectionTitle title="My work" />
+        <Tag number={4} />
+        <SectionTitle title="Feed" />
         <div className="grid gap-x-6 gap-y-4 md:grid-cols-2">
-          <Work projects={projects} />
+          <Feed feedPosts={feedPosts} />
         </div>
         <Link
-          href={"/projects"}
+          href={"/feed"}
           className="mt-4 flex gap-x-2 text-muted-foreground transition-all hover:text-primary"
         >
-          <MoveRight /> <span>View more of my work</span>
+          <MoveRight /> <span>Check my feed</span>
         </Link>
       </div>
     </div>

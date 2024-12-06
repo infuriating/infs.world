@@ -1,15 +1,14 @@
 "use client";
 
-import React from "react";
 import { Separator } from "@/components/ui/separator";
-import BlogPost from "./components/BlogPost";
+import FeedPost from "./components/FeedPost";
 
 export default function loading() {
-  const loadingBlogPosts = new Array(3).fill(null).map(
+  const loadingFeedPosts = new Array(3).fill(null).map(
     (_, i) =>
       ({
         _id: i,
-        title: "Loading blog post...",
+        title: "Loading post...",
         content: ["Loading...", "Loading...", "Loading..."],
         _creationTime: Date.now(),
       }) as any,
@@ -17,9 +16,9 @@ export default function loading() {
 
   return (
     <div className="flex animate-pulse flex-col gap-y-8 py-6">
-      {loadingBlogPosts.map((blogPost, i) => (
-        <div className="flex-col items-center gap-y-4" key={blogPost._id}>
-          <BlogPost blogPost={blogPost} />
+      {loadingFeedPosts.map((feed, i) => (
+        <div className="flex-col items-center gap-y-4" key={feed._id}>
+          <FeedPost feed={feed} />
           <Separator className="w-full lg:mt-4 lg:w-3/4" />
         </div>
       ))}

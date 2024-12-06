@@ -1,91 +1,92 @@
-import { LinkIcon } from "lucide-react";
+export const dynamic = "force-static";
+
+import GradientText from "@/components/ui/gradient-text";
 import Link from "next/link";
-import React from "react";
 
-type H3 = {
-  text: string;
-  id: string;
-};
-
-export default function page() {
-  const hthrees = [
-    {
-      text: "Who am I?",
-      id: "who-am-i",
-    },
-    {
-      text: "My Background",
-      id: "my-background",
-    },
-    {
-      text: "My Interests",
-      id: "my-interests",
-    },
-    {
-      text: "Inspiration",
-      id: "inspiration",
-    },
-  ];
-
-  const renderH3 = (hthree: H3) => (
-    <Link className="group" href={`#${hthree.id}`}>
-      <h3
-        key={hthree.id}
-        id={hthree.id}
-        className="flex cursor-pointer items-center gap-x-2 py-1 text-muted-foreground underline transition-all hover:text-white"
-      >
-        <LinkIcon className="group-hover:scale-110" size={18} /> {hthree.text}
-      </h3>
-    </Link>
-  );
-
+export default function AboutPage() {
   return (
-    <div className="prose prose-invert flex flex-col gap-y-2 prose-headings:mb-1 prose-headings:mt-0.5 prose-p:mb-0 prose-p:mt-0.5 lg:px-8">
-      <h1>Hey!</h1>
-      <h2>I really appreciate you taking the time to visit my website!</h2>
-      <h2>Anyway, let me properly introduce myself.</h2>
-      {/* Who am I? */}
-      {renderH3(hthrees[0])}
-      <p>
-        My name is Luca Kuiper, and I am a 21 year old web developer from the
-        Netherlands. I currently reside in the city of Den Haag, and I am
-        currently in my second year of studying at Grafisch Lyceum Rotterdam.
-      </p>
-      <p>
-        From a young age I have always been interested in technology and
-        computers. I started programming when I was as little as 12 years old,
-        but I only started taking it seriously when I switched courses in
-        college and figured out that there was a whole world of possibilities
-        out there.
-      </p>
-      {/* My Background */}
-      {renderH3(hthrees[1])}
-      <p>hey</p>
-      {/* My Interests */}
-      {renderH3(hthrees[2])}
-      <p>
-        I have a wide range of interests, but the most important ones to me are
-        working out, design, and video games. I have always been interested in
-        creating things, providing solutions and making them look good and user
-        friendly, which is why I chose to become a web developer and specialize
-        in front-end development.
-      </p>
-      <p>
-        One of the things I enjoy doing from time to time is playing video games
-        with my friends. I have always been interested in video games, and I
-        have played a wide range of games from different genres.{" "}
-      </p>
-      <Link href="/games">
-        You can see an collection of the variety of games I have played here
-      </Link>
-      {/* Inspiration */}
-      {renderH3(hthrees[3])}
-      <p>
-        I get inspired by a lot of things, but the most important ones to me are
-        the people around me and the things I see on the internet. I am always
-        looking for new things to learn and new things to try out, which is why
-        I am always looking for new things to try out and new things to learn.
-      </p>
+    <div className="relative flex min-h-[calc(100_-_104px)] w-full flex-col justify-between gap-16 pb-4">
+      <main className="flex w-full flex-col justify-center">
+        <div className="mx-auto flex w-full max-w-5xl flex-col gap-12 px-4 lg:px-8">
+          <section className="flex flex-col gap-6">
+            <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+              About <GradientText text="infs.world" />
+            </h1>
+            <p className="max-w-2xl text-lg text-muted-foreground">
+              Hey! I&apos;m Luca Kuiper, a passionate full-stack web developer
+              from the Netherlands. I specialize in creating modern, responsive
+              web applications with a focus on user experience.
+            </p>
+          </section>
+
+          <section className="flex flex-col gap-6">
+            <h2 className="text-2xl font-semibold">Background</h2>
+            <div className="flex max-w-2xl flex-col gap-4 text-muted-foreground">
+              <p>
+                Currently in my third and last year at Grafisch Lyceum
+                Rotterdam, I&apos;ve been immersed in the world of programming
+                since I was 12 years old. My journey began with simple curiosity
+                and has later evolved into a deep passion for web development.
+              </p>
+              <p>
+                Based in Den Haag, I&apos;ve developed a strong foundation in
+                both front-end and back-end technologies, with a particular
+                focus on React and Next.js. My early exposure to technology has
+                shaped my approach to problem-solving and innovation in web
+                development.
+              </p>
+              <p>
+                At the moment, I&apos;m an intern at{" "}
+                <Link
+                  href="https://rox.nl"
+                  className="font-bold text-primary underline transition-colors hover:text-primary/80"
+                >
+                  ROX
+                </Link>
+                , where I&apos;m working on new and exciting projects. So far
+                the journey has been pretty great and have taught me a lot,
+                thanks to the great team!
+              </p>
+            </div>
+          </section>
+
+          <section className="flex flex-col gap-6">
+            <h2 className="text-2xl font-semibold">Interests & Hobbies</h2>
+            <div className="flex max-w-2xl flex-col gap-4 text-muted-foreground">
+              <p>
+                Beyond coding, I always try to keep a balanced lifestyle that
+                includes regular workouts and exploring new design trends. I
+                believe that physical well-being and creativity go hand in hand
+                in fostering personal growth.
+              </p>
+              <p>
+                Gaming is another passion of mine, doing it competitively when I
+                was younger, and still enjoying it casually today. Playing games
+                made my creativity and love for designing spark, but also for
+                video editing.
+              </p>
+            </div>
+          </section>
+
+          <section className="flex flex-col gap-6">
+            <h2 className="text-2xl font-semibold">Professional Focus</h2>
+            <div className="flex max-w-2xl flex-col gap-4 text-muted-foreground">
+              <p>
+                My primary focus lies in creating intuitive and efficient web
+                solutions. I&apos;m constantly learning and adapting to new
+                technologies, ensuring that I stay current with industry best
+                practices and emerging trends.
+              </p>
+              <p>
+                I believe in the power of clean code and thoughtful design to
+                create meaningful user experiences. Whether it&apos;s front-end
+                development or full-stack solutions, I approach each project
+                with dedication and attention to detail.
+              </p>
+            </div>
+          </section>
+        </div>
+      </main>
     </div>
   );
 }

@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-import Tag from "./ui/tag";
 import SectionTitle from "./ui/section-title";
+import Tag from "./ui/tag";
 
 export default function Skills() {
   return (
@@ -12,12 +11,12 @@ export default function Skills() {
         <SectionTitle title="Skills" />
         <div className="flex flex-col gap-y-4 text-lg">
           <p>
-            Technology wise I&apos;m most experienced with Next.js, TypeScript,
-            Node.js, SQL and TailwindCSS.
+            As a full stack developer, I&apos;m most experienced with Next.js,
+            TypeScript, Node.js, and TailwindCSS.
           </p>
           <p>
-            I am also familiar with React Native, MongoDB, tRPC, Firebase,
-            Convex and Drizzle.
+            Other technologies I&apos;ve worked with as a full stack developer
+            include MongoDB, tRPC, Vue, Laravel, and more to mention.
           </p>
         </div>
       </div>

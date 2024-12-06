@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
-import Tag from "./ui/tag";
 import GradientText from "@/components/ui/gradient-text";
-import SectionTitle from "./ui/section-title";
-import Link from "next/link";
 import { getAgeFromBirthdate } from "@/lib/functions";
+import { ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
+import SectionTitle from "./ui/section-title";
+import Tag from "./ui/tag";
 
 export default function About() {
   return (
@@ -24,16 +24,11 @@ export default function About() {
             With a passion for design and doing the work on the front-end,
             within my heart I also carry a love for back-end.
           </p>
-          <p>
-            Other than that, I always try to expand my knowledge and improve
-            myself physically by working out. I also love to play video games
-            and spend time with my girlfriend.
-          </p>
           <Link
             href={"/about"}
-            className="underline underline-offset-2 transition-all hover:text-neutral-300 hover:no-underline"
+            className="flex items-center gap-1 underline underline-offset-2 transition-all hover:text-neutral-300"
           >
-            If you&apos;d like to know more about me, visit my about page!
+            Learn more about me <ArrowRightIcon className="h-4 w-4" />
           </Link>
         </div>
       </div>

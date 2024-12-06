@@ -1,12 +1,7 @@
 import React from "react";
-import Header from "./header/Header";
 import Grain from "./Grain";
+import Header from "./header/Header";
 import ReturnButton from "./ReturnButton";
-
-import dynamic from "next/dynamic";
-const Notification = dynamic(() => import("./header/Notification"), {
-  ssr: false,
-});
 
 export default function Page({
   children,
@@ -21,10 +16,6 @@ export default function Page({
         </div>
       </div>
       <div className="fixed z-50 w-full">
-        <Notification
-          message="I have added a new project!"
-          nav={"/projects/hollywood"}
-        />
         <Header />
       </div>
       <Grain />

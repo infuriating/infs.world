@@ -1,6 +1,5 @@
 import { Code2Icon } from "lucide-react";
 import Image from "next/image";
-import React from "react";
 
 export default function ProjectImage({
   title,
@@ -27,12 +26,6 @@ export default function ProjectImage({
             <Code2Icon size={14} /> <p className="text-sm">In Development</p>
           </div>
         )}
-        <h3 className="z-20 m-1 rounded-md border border-white/25 bg-black/10 p-2 text-xl font-bold backdrop-blur-sm transition-all group-hover:bg-black/30">
-          {title}
-        </h3>
-        <h3 className="absolute z-10 m-1 p-1 text-xl font-bold opacity-75 blur-lg invert">
-          {title}
-        </h3>
       </div>
     </div>
   );

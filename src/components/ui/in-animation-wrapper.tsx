@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { motion, cubicBezier } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { cubicBezier, motion } from "framer-motion";
+import React from "react";
 
 export default function InAnimationWrapper({
   children,

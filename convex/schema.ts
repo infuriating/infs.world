@@ -30,26 +30,11 @@ export default defineSchema({
     ),
     inDevelopment: v.boolean(),
   }),
-  blogPosts: defineTable({
+  feed: defineTable({
     image: v.optional(v.string()),
     slug: v.string(),
     title: v.string(),
     content: v.array(v.string()),
     tags: v.array(v.string()),
-  }),
-  games: defineTable({
-    title: v.string(),
-    description: v.string(),
-    status: v.union(
-      v.literal("played"),
-      v.literal("currentlyPlaying"),
-      v.literal("completed"),
-    ),
-    rank: v.optional(
-      v.object({ peak: v.string(), current: v.optional(v.string()) }),
-    ),
-    difficulties: v.optional(v.array(v.string())),
-    hoursPlayed: v.optional(v.number()),
-    platform: v.array(v.string()),
   }),
 });

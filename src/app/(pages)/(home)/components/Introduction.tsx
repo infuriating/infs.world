@@ -1,13 +1,12 @@
 "use client";
 
-import { cubicBezier, motion } from "framer-motion";
+import { buttonVariants } from "@/components/ui/button";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import React from "react";
-import SocialIcon from "./ui/social-icon";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { buttonVariants } from "@/components/ui/button";
+import { cubicBezier, motion } from "framer-motion";
 import Link from "next/link";
+import SocialIcon from "./ui/social-icon";
 
 export default function Introduction() {
   return (
@@ -15,8 +14,8 @@ export default function Introduction() {
       <div className="flex w-full max-w-lg flex-col">
         <br />
         <TextGenerateEffect
-          className="text-base text-muted-foreground"
-          words="Luca Kuiper @ infs.world"
+          className="text-sm text-muted-foreground"
+          words="luca@infs-world"
         />
         <TextGenerateEffect
           className="text-2xl"

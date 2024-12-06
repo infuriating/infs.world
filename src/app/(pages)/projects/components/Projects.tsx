@@ -1,47 +1,31 @@
 "use client";
 
-import React from "react";
+import { Doc } from "../../../../../convex/_generated/dataModel";
 import ProjectItem from "./ProjectItem";
-import { Preloaded, usePreloadedQuery } from "convex/react";
-import { api } from "../../../../../convex/_generated/api";
-import Tags from "./Tags";
 
-export default function Projects(params: {
-  preloadedProjects: Preloaded<typeof api.project.getAll>;
+export default function Projects({
+  projects,
+}: {
+  projects: Doc<"projects">[];
 }) {
-  const projects = usePreloadedQuery(params.preloadedProjects);
-  const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
-  const tags: string[] = [];
-  if (!projects || projects.length === 0) return <>No projects found!</>;
+  if (!projects || projects.length === 0) {
+    return (
+      <p className="text-center text-lg text-muted-foreground">
+        No projects found! Check back later.
+      </p>
+    );
+  }
 
-  projects.sort((a, b) => {
+  const sortedProjects = [...projects].sort((a, b) => {
     return (
       new Date(b._creationTime).getTime() - new Date(a._creationTime).getTime()
     );
   });
 
-  projects.forEach((project) => {
-    if (!project.tags) return;
-    project.tags.forEach((tag) => {
-      if (!tags.includes(tag)) {
-        tags.push(tag);
-      }
-    });
-  });
-
-  const filteredProjects = projects.filter((project) => {
-    return selectedTags.every((tag) => project.tags?.includes(tag));
-  });
-
   return (
-    <div className="flex flex-col justify-center gap-y-6">
-      <Tags
-        tags={tags}
-        selectedTags={selectedTags}
-        setSelectedTags={setSelectedTags}
-      />
-      <div className="grid grid-cols-1 place-items-center gap-6 px-8 md:grid-cols-2 xl:grid-cols-3">
-        {filteredProjects.map((project) => (
+    <section>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {sortedProjects.map((project) => (
           <ProjectItem
             key={project._id}
             image={project.images[0]}
@@ -52,6 +36,6 @@ export default function Projects(params: {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }

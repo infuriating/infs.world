@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import "./globals.css";
-import { Toaster } from "@/components/ui/sonner";
-import Page from "@/components/Page";
 import ConvexClientProvider from "@/components/ConvexClientProvider";
+import Page from "@/components/Page";
+import { Toaster } from "@/components/ui/sonner";
+import { GeistSans } from "geist/font/sans";
+import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "infs.world",
