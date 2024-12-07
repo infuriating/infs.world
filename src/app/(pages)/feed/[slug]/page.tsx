@@ -13,9 +13,18 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const slugWithoutSpaces = slug.replace("%20", " ");
+  const feedPost = await fetchQuery(api.feed.getFeedPost, {
+    slug: slugWithoutSpaces,
+  });
 
   return {
-    title: `infs.world - @${slugWithoutSpaces}`,
+    title: `${feedPost?.title || slugWithoutSpaces} - infs.world`,
+    description: "Feed post on infs.world",
+    keywords: feedPost?.tags || [],
+    authors: {
+      name: "Luca Kuiper",
+      url: "https://infs.world",
+    },
   };
 }
 

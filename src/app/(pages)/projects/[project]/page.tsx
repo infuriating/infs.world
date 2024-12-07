@@ -26,6 +26,11 @@ export async function generateMetadata({
   return {
     title: `${project?.title || projectParam} - infs.world`,
     description: project?.description || "Project details on infs.world",
+    keywords: project?.tags || [],
+    authors: {
+      name: "Luca Kuiper",
+      url: "https://infs.world",
+    },
   };
 }
 
