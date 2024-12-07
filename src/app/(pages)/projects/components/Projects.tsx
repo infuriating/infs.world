@@ -26,14 +26,7 @@ export default function Projects({
     <section>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {sortedProjects.map((project) => (
-          <ProjectItem
-            key={project._id}
-            image={project.images[0]}
-            slug={`/projects/${project.slug}`}
-            title={project.title}
-            description={project.description}
-            inDevelopment={project.inDevelopment}
-          />
+          <ProjectItem key={project._id} {...project} />
         ))}
       </div>
     </section>

@@ -30,6 +30,7 @@ export const getProject = query({
 export const addProject = mutation({
   args: {
     title: v.string(),
+    short_description: v.string(),
     description: v.string(),
     images: v.array(v.string()),
     inDevelopment: v.boolean(),
@@ -52,39 +53,18 @@ export const addProject = mutation({
     tags: v.array(v.string()),
     website: v.string(),
   },
-  handler: async (
-    ctx,
-    {
-      title,
-      description,
-      images,
-      inDevelopment,
-      technologies,
-      collaborators,
-      github,
-      tags,
-      website,
-    },
-  ) => {
-    const slug = title
+  handler: async (ctx, args) => {
+    const slug = args.title
       .toLowerCase()
       .replace(/[^a-zA-Z0-9]/g, "")
       .replace(/ /g, "-");
 
-    images = images[0].split(",");
-    tags = tags[0].split(",");
+    args.images = args.images[0].split(",");
+    args.tags = args.tags[0].split(",");
 
     const project = await ctx.db.insert("projects", {
-      title,
-      description,
+      ...args,
       slug,
-      images,
-      inDevelopment,
-      technologies,
-      collaborators,
-      github,
-      tags,
-      website,
     });
 
     return project;
@@ -95,7 +75,8 @@ export const updateProject = mutation({
   args: {
     _id: v.string(),
     title: v.string(),
-    description: v.string(),
+    short_description: v.string(),
+    description: v.optional(v.string()),
     images: v.array(v.string()),
     inDevelopment: v.boolean(),
     technologies: v.array(
@@ -108,20 +89,21 @@ export const updateProject = mutation({
       v.object({
         name: v.string(),
         role: v.string(),
-        github: v.string(),
-        linkedin: v.string(),
-        website: v.string(),
+        github: v.optional(v.string()),
+        linkedin: v.optional(v.string()),
+        website: v.optional(v.string()),
       }),
     ),
-    github: v.string(),
-    tags: v.array(v.string()),
-    website: v.string(),
+    github: v.optional(v.string()),
+    tags: v.optional(v.array(v.string())),
+    website: v.optional(v.string()),
   },
   handler: async (
     ctx,
     {
       _id,
       title,
+      short_description,
       description,
       images,
       inDevelopment,
@@ -139,6 +121,9 @@ export const updateProject = mutation({
     if (!project) throw new ConvexError("Project not found");
 
     title ? (project.title = title) : (project.title = project.title);
+    short_description
+      ? (project.short_description = short_description)
+      : (project.short_description = project.short_description);
     description
       ? (project.description = description)
       : (project.description = project.description);

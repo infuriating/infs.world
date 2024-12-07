@@ -7,6 +7,7 @@ import Link from "next/link";
 import { api } from "../../../../../convex/_generated/api";
 import ProjectCarousel from "./components/ProjectCarousel";
 import ProjectCollaborators from "./components/ProjectCollaborators";
+import ProjectDescription from "./components/ProjectDescription";
 
 type Params = {
   project: string;
@@ -88,7 +89,7 @@ export default async function ProjectPage({
                 </div>
               </div>
               <p className="max-w-2xl text-lg text-muted-foreground">
-                {project.description}
+                {project.short_description}
               </p>
             </div>
           </section>
@@ -127,6 +128,10 @@ export default async function ProjectPage({
             <div className="-mx-4 lg:mx-0">
               <ProjectCarousel project={project} />
             </div>
+
+            {project.description && (
+              <ProjectDescription description={project.description} />
+            )}
 
             <div className="space-y-8">
               {project.collaborators && project.collaborators.length > 0 && (
